@@ -28,6 +28,16 @@ module.exports = {
         historyApiFallback: true,
         host: '0.0.0.0'
     },
+    /**
+     * 文件路径优化
+     */
+    resolve:{
+        alias:{
+            pages: path.join(__dirname, 'src/pages'),
+            components: path.join(__dirname, 'src/components'),
+            router: path.join(__dirname, 'src/router')
+        }
+    },
     plugins:[
         //new webpack.HotModuleReplacementPlugin()  //模块热替换
     ]
