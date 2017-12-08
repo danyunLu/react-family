@@ -2,13 +2,13 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
- 
+
     /*入口*/
     entry: [
         'react-hot-loader/patch',
         path.join(__dirname, 'src/index.js')
     ],
-    
+
     /*输出到dist文件夹，输出文件名字为bundle.js*/
     output: {
         path: path.join(__dirname, './dist'),
@@ -23,22 +23,22 @@ module.exports = {
     },
     devServer: {
         //hot:true, //模块热替换 等同命令 --hot
-        port:8080,
+        port: 8080,
         contentBase: path.join(__dirname, './dist'),
         historyApiFallback: true,
         host: '0.0.0.0'
     },
     /**
-     * 文件路径优化
+     * 文件路径优化 
      */
-    resolve:{
-        alias:{
+    resolve: {
+        alias: {
             pages: path.join(__dirname, 'src/pages'),
             components: path.join(__dirname, 'src/components'),
             router: path.join(__dirname, 'src/router')
         }
     },
-    plugins:[
+    plugins: [
         //new webpack.HotModuleReplacementPlugin()  //模块热替换
     ]
 };
