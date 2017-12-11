@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 
     /*入口*/
@@ -9,11 +9,11 @@ module.exports = {
         path.join(__dirname, 'src/index.js')
     ],
 
-    /*输出到dist文件夹，输出文件名字为bundle.js*/
+    /*输出到dist文件夹，输出文件名字为bundle.js 优化点：缓存*/
     output: {
         path: path.join(__dirname, './dist'),
-        filename: 'bundle.js',
-        chunkFilename:'[name].js'
+        filename: '[name].[hash].js',
+        chunkFilename:'[name].[chunkhash].js'
     },
     module: {
         rules: [{
@@ -53,7 +53,13 @@ module.exports = {
         }
     },
     plugins: [
-        //new webpack.HotModuleReplacementPlugin()  //模块热替换
+        //
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: path.join(__dirname, 'src/index.html')
+        }),
+        new webpack.HotModuleReplacementPlugin()  //模块热替换 jsx
+
     ],
     devtool:"inline-source-map"
 };
