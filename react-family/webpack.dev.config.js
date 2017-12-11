@@ -42,5 +42,6 @@ module.exports = {
     },
     plugins: [
         //new webpack.HotModuleReplacementPlugin()  //模块热替换
-    ]
+    ],
+    devtool:"inline-source-map"
 };
