@@ -1,4 +1,4 @@
-import {increment, decrement, reset} from './actions/counter';
+import {increment, decrement, reset} from 'actions/counter';
 import store from './store';
 
 //打印初始状态
