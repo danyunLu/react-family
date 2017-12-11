@@ -6,7 +6,6 @@ module.exports = {
     /*入口*/
     entry: {
         app: [
-            'react-hot-loader/patch',
             path.join(__dirname, 'src/index.js')
         ],
         vendor:['react','react-router-dom','redux','react-dom','react-redux'] ,//提取公共库
@@ -15,7 +14,7 @@ module.exports = {
     /*输出到dist文件夹，输出文件名字为bundle.js 优化点：缓存*/
     output: {
         path: path.join(__dirname, './dist'),
-        filename: '[name].[hash].js',
+        filename: '[name].[chunkhash].js',
         chunkFilename: '[name].[chunkhash].js'
     },
     module: {
@@ -65,8 +64,7 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor'
         }),
-        new webpack.HotModuleReplacementPlugin()  //模块热替换 jsx
 
     ],
-    devtool: "inline-source-map"
+    devtool: "cheap-module-source-map"
 };

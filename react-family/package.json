@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --config webpack.dev.config.js  --color --progress --hot",
-    "dev-build": "webpack --config webpack.dev.config.js"
+    "dev-build": "webpack --config webpack.dev.config.js",
+    "prod-build": "webpack --config webpack.config.js"
   },
   "keywords": [
     "hahaha"
