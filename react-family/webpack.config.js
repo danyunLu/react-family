@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');//文件压缩
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
 
     /*入口*/
@@ -17,9 +18,7 @@ module.exports = {
         path: path.join(__dirname, './dist'),
         filename: '[name].[chunkhash].js',
         chunkFilename: '[name].[chunkhash].js',
-        output: {
-            publicPath : '/'
-        }
+        publicPath : '/'
     },
     module: {
         rules: [{
@@ -77,6 +76,11 @@ module.exports = {
          new webpack.HashedModuleIdsPlugin(),
          new webpack.optimize.CommonsChunkPlugin({
             name: 'runtime'
+        }),
+        new CleanWebpackPlugin(['dist']),//打包优化
+        new ExtractTextPlugin({
+            filename: '[name].[contenthash:5].css',
+            allChunks: true
         })
 
     ],
