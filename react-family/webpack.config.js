@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');//文件压缩
 module.exports = {
 
     /*入口*/
@@ -64,6 +65,16 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor'
         }),
+        new UglifyJSPlugin(), //文件压缩
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+             }
+         }),
+         new webpack.HashedModuleIdsPlugin(),
+         new webpack.optimize.CommonsChunkPlugin({
+            name: 'runtime'
+        })
 
     ],
     devtool: "cheap-module-source-map"

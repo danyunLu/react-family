@@ -8,8 +8,9 @@ import Counter from "bundle-loader?lazy&name=counter!pages/Counter/Counter";
 import UserInfo from "bundle-loader?lazy&name=userInfo!pages/UserInfo/UserInfo";
 
 const Loading = function () {
-    return <div>Loading...</div>
+    return <div>Loading...^v^</div>
 };
+
 
 const createComponent = (component) => () => (
     <Bundle load={component}>

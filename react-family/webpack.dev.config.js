@@ -65,7 +65,7 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor'
         }),
-        new webpack.HotModuleReplacementPlugin()  //模块热替换 jsx
+        new webpack.HotModuleReplacementPlugin(),  //模块热替换 jsx
 
     ],
     devtool: "inline-source-map"

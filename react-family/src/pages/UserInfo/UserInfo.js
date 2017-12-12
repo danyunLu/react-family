@@ -8,7 +8,7 @@ class UserInfo extends Component {
         return(
             <div>
                 {
-                    isLoading?"请求信息中……":
+                    isLoading?"请求信息中……99":
                     (errorMsg?errorMsg:
                         <div>
                             <p>用户信息--</p>
