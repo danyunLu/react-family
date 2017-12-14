@@ -5,6 +5,7 @@ import { AppContainer } from 'react-hot-loader';
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from 'react-router-dom';
 import store from './redux/store';
+import 'mock/mock';
 
 import App from "components/App/App"
 

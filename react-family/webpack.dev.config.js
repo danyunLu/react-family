@@ -1,6 +1,7 @@
 const merge = require('webpack-merge');
 const path = require('path');
 const commonConfig = require('./webpack.common.config.js');
+const webpack = require('webpack');
 const devConfig = {
     devtool: "inline-source-map",//调试
     /*入口*/
@@ -22,6 +23,11 @@ const devConfig = {
             use: ['style-loader', 'css-loader',"postcss-loader"],
         }]
     },
+    plugins:[
+        new webpack.DefinePlugin({
+               MOCK: true
+        })
+    ],
     devServer: {
         //hot:true, //模块热替换 等同命令 --hot
         contentBase: path.join(__dirname, './dist'),
