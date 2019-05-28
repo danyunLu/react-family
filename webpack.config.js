@@ -1,4 +1,4 @@
-const merge = reqiure("webpack-merge");
+const merge = require("webpack-merge");
 const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');//文件压缩
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -33,4 +33,4 @@ const publicConfig = {
     ],
 };
 
-module.export = merge(commonConfig, publicConfig)
+module.exports = merge(commonConfig, publicConfig)
